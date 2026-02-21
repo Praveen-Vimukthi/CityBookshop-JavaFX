@@ -1,8 +1,8 @@
 package com.citybookshop.model;
 
 public class Cashier extends User{
-    public Cashier(){
-        super.setRole("Cashier");
+    public Cashier(String userId,String username,String password){
+        super(userId,username,password,"Cashier");
     }
     public boolean login(){
         return true;

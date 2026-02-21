@@ -1,12 +1,17 @@
 package com.citybookshop.model;
 
 public class Category {
-    private int categoryId;
+    private String categoryId;
     private String categoryName;
     private String description;
 
+    public Category(String categoryId,String categoryName,String description){
+        setCategoryId(categoryId);
+        setCategoryName(categoryName);
+        setDescription(description);
+    }
     // getters
-    public int getCategoryId(){
+    public String getCategoryId(){
         return categoryId;
     }
     public String getCategoryName(){
@@ -17,7 +22,7 @@ public class Category {
     }
 
     // setters
-    public void setCategoryId(int categoryId){
+    public void setCategoryId(String categoryId){
         this.categoryId=categoryId;
     }
     public void setCategoryName(String categoryName){

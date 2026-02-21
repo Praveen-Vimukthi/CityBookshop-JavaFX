@@ -1,8 +1,8 @@
 package com.citybookshop.model;
 
 public class Manager extends User{
-    public Manager(){
-        super.setRole("Manager");
+    public Manager(String userId,String username,String password){
+        super(userId,username,password,"Manager");
     }
     public boolean login(){
         return true;
