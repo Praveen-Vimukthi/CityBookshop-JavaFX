@@ -1,2 +1,4 @@
-package com.citybookshop.controller;public class AddBookController {
+package com.citybookshop.controller;
+
+public class AddBookController {
 }
