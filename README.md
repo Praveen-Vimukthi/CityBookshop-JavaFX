@@ -4,16 +4,15 @@
 
 ---
 
-## 👥 Group Members — Team 05
+## Group Members
 
-| Name | Reg. Number | Email |
-|---|---|---|
-| M. Kabileshwaran | 2022/COM/38 | kabileshwaran1896@gmail.com |
-| Indunil | 2022/COM/34 | — |
-| Praveen | 2022/COM/35 | — |
-| Aakash | 2022/COM/37 | — |
-| M. DinushKhan | 2022/COM/36 | dinushkhan1214@gmail.com |
-
+| Name             | Email                       |
+|-----------------|-----------------------------|
+| M. Kabileshwaran | kabileshwaran1896@gmail.com |
+| Indunil          | —                           |
+| Praveen          | —                           |
+| Aakash           | —                           |
+| M. Dinush Khan   | dinushkhan1214@gmail.com    |
 ---
 
 ## 🎯 System Overview
