@@ -1,5 +1,4 @@
 package com.citybookshop.controller;
 
-public class MainController {
-
+public class DashboardController {
 }
