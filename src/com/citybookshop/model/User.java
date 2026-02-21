@@ -1,11 +1,16 @@
 package com.citybookshop.model;
 
-abstract class User {
+public abstract class User {
     private String userId;
     private String username;
     private String password;
     private String role;
-
+    protected User(String userId,String username,String password,String role){
+        setUserId(userId);
+        setUsername(username);
+        setPassword(password);
+        setRole(role);
+    }
     public String getUserId(){
         return userId;
     }
@@ -33,5 +38,5 @@ abstract class User {
     }
 
     abstract String getDetails();
-    abstract boolean login();
+//    abstract boolean login();
 }
