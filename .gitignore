@@ -1,3 +1,22 @@
+# ── IntelliJ IDEA ────────────────────────────
 .idea/
 *.iml
+*.iws
+*.ipr
+out/
+.idea_modules/
 
+# ── Compiled Output ───────────────────────────
+*.class
+*.jar
+*.war
+*.ear
+target/
+out/
+build/
+
+
+# ── Sensitive files ───────────────────────────
+*.env
+*.key
+*.pem
