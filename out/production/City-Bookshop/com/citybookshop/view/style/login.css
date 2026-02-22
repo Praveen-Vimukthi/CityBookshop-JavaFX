@@ -1,0 +1,59 @@
+#left {
+    -fx-background-color: #16213e;
+}
+#right {
+    -fx-background-color: #1a1a2e;
+}
+#rectangle {
+    -fx-fill: #2f2442;
+    -fx-stroke: #e94560;
+    -fx-stroke-type: inside;
+    -fx-arc-height: 5;
+    -fx-arc-width: 5;
+}
+#usernameField {
+    -fx-background-color: #16213e;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #555577;
+    -fx-border-color: #0f3460;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+}
+
+#usernameField:focused {
+    -fx-border-color: #e94560;
+    -fx-background-color: #1e2a45;
+}
+
+#passwordField {
+    -fx-background-color: #16213e;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #555577;
+    -fx-border-color: #0f3460;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+}
+
+#passwordField:focused {
+    -fx-border-color: #e94560;
+    -fx-background-color: #1e2a45;
+}
+
+#login {
+    -fx-background-color: #e94560;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25px;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+#login:hover {
+    -fx-background-color: #c73652;
+}
+
+#login:pressed {
+    -fx-background-color: #a82d45;
+}
