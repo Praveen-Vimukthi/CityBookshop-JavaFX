@@ -1,0 +1,23 @@
+#left{
+	-fx-background-color:#16213d;
+	-fx-border-color:#303263;
+	-fx-color:#e94560;
+}
+#login{
+	-fx-background-color: #e94560;
+	-fx-border-radius: 5px;
+}
+#right{
+	-fx-background-color: #191a2e;
+}
+
+#username,#password{
+	-fx-background-color:#16213d;
+	-fx-border-color:#595c96;
+	-fx-border-radius: 5px;
+	-fx-color:#303263;
+}
+
+#rectangle{
+	-fx-border-radius: 30px;
+}
