@@ -6,14 +6,14 @@ public class Book {
     private String author;
     private double price;
     private int quantity;
-    private Category category;
+    private String categoryName;
     public Book(String bookId,String title,String author,double price,int quantity,String categoryName){
         setBookId(bookId);
         setTitle(title);
         setAuthor(author);
         setPrice(price);
         setQuantity(quantity);
-        setCategory(categoryName);
+        setCategoryName(categoryName);
 
     }
     // getters
@@ -32,11 +32,8 @@ public class Book {
     public int getQuantity(){
         return quantity;
     }
-    public Category getCategory(){
-        return category;
-    }
     public String getCategoryName(){
-        return category.getCategoryName();
+        return categoryName;
     }
     // setters
     public void setBookId(String bookId){
@@ -54,16 +51,15 @@ public class Book {
     public void setQuantity(int quantity){
         this.quantity=quantity;
     }
-    public void setCategory(String categoryName){
-        this.category.setCategoryName(categoryName);
+    public void setCategoryName(String categoryName){
+        this.categoryName=categoryName;
     }
 
     public String getDetails(){
-        return "BookID: "+bookId+"\nBook Title: "+title+"\nBook Author: "+author+"\nBook Price: "+price+"\nCategory Belongs to: "+category;
+        return "BookID: "+bookId+"\nBook Title: "+title+"\nBook Author: "+author+"\nBook Price: "+price+"\nCategory Belongs to: "+categoryName;
     }
 
     public String toFileString(){
-        // has to complete this , save to file
-        return "";
+        return bookId+"|"+title+"|"+author+"|"+price+"|"+quantity+"|"+categoryName;
     }
 }

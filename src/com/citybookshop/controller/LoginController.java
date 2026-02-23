@@ -43,30 +43,13 @@ public class LoginController {
     }
 
     private void loadDashboard(User loggedInUser) throws IOException {
-        // 1. Load the Dashboard.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/citybookshop/view/Dashboard.fxml"));
-
-        // 2. Create the scene from the loaded FXML
         Parent root=loader.load();
-
-        // 3. Get the DashboardController from the loader
         DashboardController dController=loader.getController();
-
-        // 4. Pass the logged in user to the dashboard
         dController.setUser(loggedInUser);
-
-        // 5. Get the current window (Stage)
         Stage stage=(Stage) loginButton.getScene().getWindow();
-
-
-        // 6. Create a new scene with the dashboard layout
         Scene scene = new Scene(root);
-
-
-        // 7. Set the new scene on the stage
         stage.setScene(scene);
-
-        // 8. Show the stage
         stage.show();
     }
 }

@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@style/Dashboard.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.view.Dashboard">
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@Book.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.controller.BookController">
    <children>
       <BorderPane prefHeight="733.0" prefWidth="1024.0">
          <left>
             <AnchorPane id="left" prefHeight="725.0" prefWidth="284.0" stylesheets="@styles/Dashboard.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="buttons" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewBooks" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
+                  <Button id="buttons" fx:id="searchBooks" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📦 View Stock" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewStocks" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📦 View Stock" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
@@ -46,7 +51,7 @@
                         <Font name="Gill Sans MT" size="27.0" />
                      </font>
                   </Label>
-                  <Button layoutX="909.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Logout" textFill="WHITE">
+                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Logout" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT Bold" size="18.0" />
                      </font>
@@ -69,40 +74,45 @@
             </AnchorPane>
          </top>
          <center>
-            <AnchorPane id="center" prefHeight="658.0" prefWidth="740.0" stylesheets="@styles/Dashboard.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="658.0" prefWidth="740.0" spacing="20.0" BorderPane.alignment="CENTER" style="-fx-padding: 20;">
                <children>
-                  <Label layoutX="170.0" layoutY="193.0" prefHeight="46.0" prefWidth="412.0" text="Welcome to City Bookshop" textFill="WHITE">
-                     <font>
-                        <Font name="Gill Sans MT Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <HBox id="Rectangles" layoutX="179.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="@styles/Dashboard.css">
+                  <Label text="🔍 Search Books" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" />
+                  <HBox spacing="15.0" alignment="CENTER_LEFT">
                      <children>
-                        <Label prefHeight="69.0" prefWidth="55.0" text="24" textFill="#e94560">
-                           <font>
-                              <Font name="System Bold" size="44.0" />
-                           </font>
-                        </Label>
+                        <Label text="Title:" prefWidth="50.0" />
+                        <TextField fx:id="titleField" prefWidth="200.0" promptText="Enter book title" />
+                        <Label text="Category:" prefWidth="70.0" />
+                        <ComboBox fx:id="categoryCombo" prefWidth="150.0" promptText="Select category" />
                      </children>
                   </HBox>
-                  <HBox id="Rectangles" layoutX="395.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="@styles/Dashboard.css">
+                  <HBox spacing="15.0" alignment="CENTER_LEFT">
                      <children>
-                        <Label text="6" textFill="#52cca7">
-                           <font>
-                              <Font name="Gill Sans MT Bold" size="44.0" />
-                           </font>
-                        </Label>
+                        <Label text="Min Price:" prefWidth="70.0" />
+                        <TextField fx:id="minPriceField" prefWidth="100.0" promptText="0.0" />
+                        <Label text="Max Price:" prefWidth="70.0" />
+                        <TextField fx:id="maxPriceField" prefWidth="100.0" promptText="999.99" />
+                        <Button fx:id="searchButton" onAction="#handleSearch" text="🔍 Search" prefWidth="100.0" />
+                        <Button fx:id="clearButton" onAction="#handleClear" text="🗑️ Clear" prefWidth="100.0" style="-fx-background-color: #f44336;" />
                      </children>
                   </HBox>
-                  <Label layoutX="221.0" layoutY="452.0" prefHeight="21.0" prefWidth="95.0" text="Total Books" textAlignment="RIGHT" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="450.0" layoutY="452.0" text="Categories" textFill="WHITE" />
-                  <Label layoutX="216.0" layoutY="243.0" text="Select an option from the menu to get start" textFill="#6f6f6f" />
+                  <TableView fx:id="bookTable" prefHeight="350.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="titleCol" prefWidth="180.0" text="Title" />
+                        <TableColumn fx:id="authorCol" prefWidth="140.0" text="Author" />
+                        <TableColumn fx:id="priceCol" prefWidth="90.0" text="Price" />
+                        <TableColumn fx:id="quantityCol" prefWidth="90.0" text="Quantity" />
+                        <TableColumn fx:id="categoryCol" prefWidth="120.0" text="Category" />
+                     </columns>
+                  </TableView>
+                  <HBox spacing="20.0" alignment="CENTER">
+                     <children>
+                        <Label fx:id="resultLabel" style="-fx-font-weight: bold; -fx-text-fill: #2196F3;" />
+                        <Button fx:id="backButton" onAction="#handleBack" text="⬅️ Back to Dashboard" prefWidth="200.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                     </children>
+                  </HBox>
                </children>
-            </AnchorPane>
+            </VBox>
          </center>
       </BorderPane>
    </children>

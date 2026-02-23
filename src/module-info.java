@@ -1,6 +1,7 @@
 module com.citybookshop {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
     opens com.citybookshop to javafx.graphics;
     opens com.citybookshop.controller to javafx.fxml;

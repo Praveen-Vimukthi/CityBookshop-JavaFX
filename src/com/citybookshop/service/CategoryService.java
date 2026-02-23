@@ -1,7 +1,9 @@
 package com.citybookshop.service;
+
 import com.citybookshop.model.Category;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
 public class CategoryService {
     private static final String FILE_PATH="src/data/categories";
     private FileHandler fileHandler;

@@ -48,7 +48,7 @@ public class UserService {
     private String generateId() {
         List<String> lines=fileHandler.readline(FILE_PATH);
         int count=lines.size()+1;
-        return String.format("usr%03d",count);
+        return String.format("USR%03d",count);
     }
 
     private boolean userExists(String username) {

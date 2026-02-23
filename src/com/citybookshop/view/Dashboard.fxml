@@ -14,17 +14,17 @@
          <left>
             <AnchorPane id="left" prefHeight="725.0" prefWidth="284.0" stylesheets="@style/Dashboard.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="buttons" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewBooks" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleViewBooks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
+                  <Button id="buttons" fx:id="searchBooks" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleSearchBooks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📦 View Stock" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewStocks" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleViewStocks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📦 View Stock" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
@@ -40,9 +40,9 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button id="buttons" layoutX="17.0" layoutY="379.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="➕ Add New Book" textFill="WHITE" />
-                  <Button id="buttons" layoutX="17.0" layoutY="419.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="🏷️ Add Category" textFill="WHITE" />
-                  <Button id="buttons" layoutX="17.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="👤 Create Account" textFill="WHITE" />
+                  <Button id="buttons" layoutX="17.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleAddBook" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="➕ Add New Book" textFill="WHITE" />
+                  <Button id="buttons" layoutX="17.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleAddCategory" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="🏷️ Add Category" textFill="WHITE" />
+                  <Button id="buttons" layoutX="17.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleCreateAccount" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="👤 Create Account" textFill="WHITE" />
                </children>
             </AnchorPane>
          </left>
@@ -54,7 +54,7 @@
                         <Font name="Gill Sans MT" size="27.0" />
                      </font>
                   </Label>
-                  <Button layoutX="909.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Logout" />
+                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="100.0" text="Logout" />
                   <Label layoutX="668.0" layoutY="21.0" prefHeight="31.0" prefWidth="144.0" text="Welcome Admin" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
