@@ -20,3 +20,11 @@ build/
 *.env
 *.key
 *.pem
+
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
