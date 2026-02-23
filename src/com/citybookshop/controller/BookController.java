@@ -33,6 +33,10 @@ public class BookController {
     @FXML private Button searchButton;
     @FXML private Button clearButton;
     @FXML private Button backButton;
+    @FXML private Button logout;
+    @FXML private Button viewBooks;
+    @FXML private Button searchBooks;
+    @FXML private Button viewStocks;
     @FXML private Label resultLabel;
 
     private BookService bookService;
@@ -110,6 +114,37 @@ public class BookController {
     @FXML
     private void handleBack() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/citybookshop/view/Dashboard.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void handleLogout() throws IOException {
+        loadView("/com/citybookshop/view/Login.fxml");
+    }
+
+    @FXML
+    private void handleViewBooks() throws IOException {
+        // Already in Book view, perhaps reload
+        loadBooks();
+    }
+
+    @FXML
+    private void handleSearchBooks() throws IOException {
+        // Same as viewBooks
+        loadBooks();
+    }
+
+    @FXML
+    private void handleViewStocks() throws IOException {
+        loadView("/com/citybookshop/view/Stock.fxml");
+    }
+
+    private void loadView(String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
         Stage stage = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(root);

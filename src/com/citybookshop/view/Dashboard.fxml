@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.controller.DashboardController">
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.controller.DashboardController">
    <children>
       <BorderPane prefHeight="733.0" prefWidth="1024.0" stylesheets="@style/Dashboard.css">
          <left>
@@ -54,8 +54,8 @@
                         <Font name="Gill Sans MT" size="27.0" />
                      </font>
                   </Label>
-                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="100.0" text="Logout" />
-                  <Label layoutX="668.0" layoutY="21.0" prefHeight="31.0" prefWidth="144.0" text="Welcome Admin" textFill="WHITE">
+                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" text="Logout" />
+                  <Label fx:id="welcomeLabel" layoutX="668.0" layoutY="21.0" prefHeight="31.0" prefWidth="144.0" text="Welcome" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -67,22 +67,53 @@
          <center>
             <AnchorPane id="center" prefHeight="658.0" prefWidth="740.0" stylesheets="@style/Dashboard.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="162.0" layoutY="193.0" text="Welcome to City Bookshop" textFill="WHITE">
+                  <Label layoutX="162.0" layoutY="193.0" text="🏪 Welcome to City Bookshop" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT Bold" size="31.0" />
                      </font>
                   </Label>
-                  <HBox id="Rectangles" layoutX="65.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="@style/Dashboard.css">
+                  <HBox id="Rectangles" fx:id="totalBooks" layoutX="126.0" layoutY="289.0" prefHeight="154.0" prefWidth="178.0" stylesheets="@style/Dashboard.css" style="-fx-background-color: rgba(255,255,255,0.1);">
                      <children>
-                        <Label prefHeight="73.0" prefWidth="37.0" text="24" textFill="#e94560">
+                        <Label fx:id="totalBooksLabel" prefHeight="87.0" prefWidth="75.0" text="0" textAlignment="CENTER" textFill="#e94560">
                            <font>
-                              <Font name="System Bold" size="31.0" />
+                              <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox id="Rectangles" layoutX="281.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="style/Dashboard.css" />
-                  <HBox id="Rectangles" layoutX="500.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="style/Dashboard.css" />
+                  <HBox id="Rectangles" fx:id="totalCategories" layoutX="364.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="style/Dashboard.css" style="-fx-background-color: rgba(255,255,255,0.1);">
+                     <children>
+                        <Label fx:id="totalCategoriesLabel" prefHeight="73.0" prefWidth="100.0" text="0" textAlignment="CENTER" textFill="#e94560">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox id="Rectangles" fx:id="stocks" layoutX="600.0" layoutY="290.0" prefHeight="154.0" prefWidth="178.0" stylesheets="style/Dashboard.css" style="-fx-background-color: rgba(255,255,255,0.1);">
+                     <children>
+                        <Label fx:id="stocksLabel" prefHeight="73.0" prefWidth="100.0" text="0" textAlignment="CENTER" textFill="#e94560">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label layoutX="179.0" layoutY="457.0" prefHeight="27.0" prefWidth="86.0" text="Total Books">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="390.0" layoutY="457.0" prefHeight="27.0" prefWidth="137.0" text="Total Categories">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="633.0" layoutY="457.0" prefHeight="27.0" prefWidth="86.0" text="Total Stocks">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </center>

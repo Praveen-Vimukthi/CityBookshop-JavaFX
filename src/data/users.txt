@@ -1,5 +1,4 @@
 USR001|admin|123|Manager
-USR002|kabil|1896|Cashier
-USR003|praveen|897|Manager
-usr004|Kabileshwaran|123456|Manager
-USR005|dhanush|mjkd1234|Manager
+USR002|kabil|1896|Manager
+USR003|praveen|897|Cashier
+

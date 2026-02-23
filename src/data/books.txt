@@ -1,1 +1,15 @@
-BK001|
+BK001|Clean Code|Robert C. Martin|4500|12|Programming
+BK002|The Pragmatic Programmer|Andrew Hunt|5200|8|Programming
+BK003|Introduction to Algorithms|Thomas H. Cormen|7800|5|Computer Science
+BK004|Design Patterns|Erich Gamma|6000|7|Software Engineering
+BK005|Atomic Habits|James Clear|3200|15|Self Development
+BK006|Deep Work|Cal Newport|3500|10|Productivity
+BK007|The Alchemist|Paulo Coelho|2500|20|Fiction
+BK008|1984|George Orwell|2700|18|Fiction
+BK009|Database System Concepts|Abraham Silberschatz|6900|6|Database
+BK010|Operating System Concepts|Abraham Silberschatz|7200|4|Computer Science
+BK011|Effective Java|Joshua Bloch|4800|9|Programming
+BK012|Refactoring|Martin Fowler|5300|6|Software Engineering
+BK013|Rich Dad Poor Dad|Robert Kiyosaki|3000|14|Finance
+BK014|Clean Architecture|Robert C. Martin|5000|11|Programming
+BK015|Artificial Intelligence: A Modern Approach|Stuart Russell|8200|3|Artificial Intelligence

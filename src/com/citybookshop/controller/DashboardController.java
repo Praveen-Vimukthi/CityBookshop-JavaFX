@@ -1,22 +1,33 @@
 package com.citybookshop.controller;
 
 import com.citybookshop.model.User;
+import com.citybookshop.service.BookService;
+import com.citybookshop.service.CategoryService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DashboardController {
+public class DashboardController implements Initializable {
     @FXML private Button viewBooks;
     @FXML private Button searchBooks;
     @FXML private Button viewStocks;
     @FXML private Button addBook;
     @FXML private Button addCategory;
     @FXML private Button logout;
+
+    @FXML private Label totalBooksLabel;
+    @FXML private Label totalCategoriesLabel;
+    @FXML private Label stocksLabel;
+    @FXML private Label welcomeLabel;
 
     private User loggedInUser;
 
@@ -57,6 +68,29 @@ public class DashboardController {
     @FXML
     private void handleLogout() throws IOException {
         loadView("/com/citybookshop/view/Login.fxml");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        BookService bookService = new BookService();
+        CategoryService categoryService = new CategoryService();
+
+        // Total Books
+        int totalBooks = bookService.getAllBooks().size();
+        totalBooksLabel.setText("📚 Total Books: " + totalBooks);
+
+        // Total Categories
+        int totalCategories = categoryService.getAllCategory().size();
+        totalCategoriesLabel.setText("🏷️ Total Categories: " + totalCategories);
+
+        // Total Stocks
+        int totalStocks = bookService.getAllBooks().stream().mapToInt(book -> book.getQuantity()).sum();
+        stocksLabel.setText("📦 Total Stocks: " + totalStocks);
+
+        // Welcome message
+        if (loggedInUser != null) {
+            welcomeLabel.setText("Welcome " + loggedInUser.getUsername() + " (" + loggedInUser.getRole() + ")");
+        }
     }
 
     private void loadView(String fxmlPath) throws IOException {

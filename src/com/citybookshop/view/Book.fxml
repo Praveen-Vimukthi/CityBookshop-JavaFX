@@ -17,19 +17,19 @@
    <children>
       <BorderPane prefHeight="733.0" prefWidth="1024.0">
          <left>
-            <AnchorPane id="left" prefHeight="725.0" prefWidth="284.0" stylesheets="@styles/Dashboard.css" BorderPane.alignment="CENTER">
+            <AnchorPane id="left" prefHeight="725.0" prefWidth="284.0" stylesheets="@style/Dashboard.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="buttons" fx:id="viewBooks" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewBooks" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleViewBooks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📚 View All Books" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" fx:id="searchBooks" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
+                  <Button id="buttons" fx:id="searchBooks" layoutX="17.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleSearchBooks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="🔍 Search Books" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
                   </Button>
-                  <Button id="buttons" fx:id="viewStocks" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@styles/Dashboard.css" text="📦 View Stock" textFill="WHITE">
+                  <Button id="buttons" fx:id="viewStocks" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleViewStocks" prefHeight="40.0" prefWidth="250.0" stylesheets="@style/Dashboard.css" text="📦 View Stock" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT" size="18.0" />
                      </font>
@@ -44,14 +44,14 @@
             </AnchorPane>
          </left>
          <top>
-            <AnchorPane id="top" prefHeight="72.0" prefWidth="1024.0" stylesheets="@styles/Dashboard.css" BorderPane.alignment="CENTER">
+            <AnchorPane id="top" prefHeight="72.0" prefWidth="1024.0" stylesheets="@style/Dashboard.css" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="14.0" layoutY="21.0" text="    City Bookshop" textFill="#e94560">
                      <font>
                         <Font name="Gill Sans MT" size="27.0" />
                      </font>
                   </Label>
-                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Logout" textFill="WHITE">
+                  <Button fx:id="logout" layoutX="909.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="100.0" text="Logout" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans MT Bold" size="18.0" />
                      </font>
