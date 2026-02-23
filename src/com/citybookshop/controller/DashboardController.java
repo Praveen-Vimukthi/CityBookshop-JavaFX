@@ -41,12 +41,12 @@ public class DashboardController {
 
     @FXML
     private void handleAddBook() throws IOException {
-        // load AddBook view
+        loadView("/com/citybookshop/view/AddBook.fxml");
     }
 
     @FXML
     private void handleAddCategory() throws IOException {
-        // load AddCategory view
+        loadView("/com/citybookshop/view/AddCategory.fxml");
     }
 
     @FXML

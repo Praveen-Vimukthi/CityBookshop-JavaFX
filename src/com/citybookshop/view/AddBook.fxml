@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.citybookshop.view.AddBook"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@style/Dashboard.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.controller.AddBookController">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1024.0">
+         <center>
+            <VBox prefHeight="658.0" prefWidth="740.0" spacing="20.0" style="-fx-padding: 20; -fx-background-color: #191a2e;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="➕ Add New Book" />
+                  <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #16213d; -fx-border-color: #303263; -fx-border-radius: 10; -fx-background-radius: 10;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Title:" textFill="WHITE" />
+                              <TextField fx:id="titleField" prefWidth="250.0" promptText="Enter book title" style="-fx-background-color: #191a2e; -fx-text-fill: white;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Author:" textFill="WHITE" />
+                              <TextField fx:id="authorField" prefWidth="250.0" promptText="Enter author name" style="-fx-background-color: #191a2e; -fx-text-fill: white;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Price:" textFill="WHITE" />
+                              <TextField fx:id="priceField" prefWidth="100.0" promptText="0.0" style="-fx-background-color: #191a2e; -fx-text-fill: white;" />
+                              <Label prefWidth="70.0" text="Quantity:" textFill="WHITE" />
+                              <TextField fx:id="quantityField" prefWidth="80.0" promptText="1" style="-fx-background-color: #191a2e; -fx-text-fill: white;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                           <children>
+                              <Label prefWidth="100.0" text="Category:" textFill="WHITE" />
+                              <ComboBox fx:id="categoryCombo" prefWidth="250.0" promptText="Select category" style="-fx-background-color: #191a2e; -fx-control-inner-background: #191a2e;" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Button fx:id="addButton" onAction="#handleAdd" prefWidth="150.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="✅ Add Book" />
+                        <Button fx:id="backButton" onAction="#handleBack" prefWidth="200.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="⬅ Back to Dashboard" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="messageLabel" style="-fx-font-weight: bold; -fx-text-fill: #f44336;" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>
