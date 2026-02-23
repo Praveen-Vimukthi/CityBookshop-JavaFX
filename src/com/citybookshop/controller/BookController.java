@@ -1,6 +1,7 @@
 package com.citybookshop.controller;
 
 import com.citybookshop.model.Book;
+import com.citybookshop.model.User;
 import com.citybookshop.service.BookService;
 import com.citybookshop.service.CategoryService;
 
@@ -14,7 +15,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,14 +38,25 @@ public class BookController {
     @FXML private Button clearButton;
     @FXML private Button backButton;
     @FXML private Button logout;
+    @FXML private Label roleBtn;
     @FXML private Button viewBooks;
     @FXML private Button searchBooks;
     @FXML private Button viewStocks;
     @FXML private Label resultLabel;
+    @FXML private Label welcomeLabel;
 
     private BookService bookService;
     private CategoryService categoryService;
     private ObservableList<Book> books;
+    private User loggedInUser;
+
+    public void setUser(User loggedInUser) {
+        this.loggedInUser = loggedInUser;
+        if (loggedInUser != null) {
+            welcomeLabel.setText("Welcome, " + loggedInUser.getUsername());
+            roleBtn.setText(loggedInUser.getRole());
+        }
+    }
 
     @FXML
     public void initialize() {
@@ -52,19 +67,46 @@ public class BookController {
         populateCategories();
     }
 
+    private ObservableList<Book> loadFromFile(String filePath) {
+        List<Book> list = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                if (parts.length == 6) {
+                    list.add(new Book(
+                            parts[0].trim(),
+                            parts[1].trim(),
+                            parts[2].trim(),
+                            Double.parseDouble(parts[3].trim()),
+                            Integer.parseInt(parts[4].trim()),
+                            parts[5].trim()
+                    ));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return FXCollections.observableArrayList(list);
+    }
+
     private void setUpTable() {
-        idCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-        authorCol.setCellValueFactory(new PropertyValueFactory<>("author"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        categoryCol.setCellValueFactory(new PropertyValueFactory<>("categoryName"));
+        idCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getBookId()));
+        titleCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
+        authorCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getAuthor()));
+        priceCol.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getPrice()).asObject());
+        quantityCol.setCellValueFactory(data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getQuantity()).asObject());
+        categoryCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getCategoryName()));
+
     }
 
     private void loadBooks() {
-        books = FXCollections.observableArrayList(bookService.getAllBooks());
+        books = loadFromFile("src/data/books.txt");
         bookTable.setItems(books);
         resultLabel.setText("Total books: " + books.size());
+
     }
 
     private void populateCategories() {
@@ -80,6 +122,7 @@ public class BookController {
         String category = categoryCombo.getValue();
         double minPrice = 0;
         double maxPrice = Double.MAX_VALUE;
+
         try {
             if (!minPriceField.getText().isEmpty()) {
                 minPrice = Double.parseDouble(minPriceField.getText());
@@ -91,14 +134,18 @@ public class BookController {
             resultLabel.setText("Invalid price range");
             return;
         }
+
         double finalMinPrice = minPrice;
         double finalMaxPrice = maxPrice;
-        List<Book> filtered = bookService.getAllBooks().stream()
+
+        // ✅ Filtering from the already-loaded books list (from text file)
+        List<Book> filtered = books.stream()
                 .filter(b -> title.isEmpty() || b.getTitle().toLowerCase().contains(title.toLowerCase()))
                 .filter(b -> "All".equals(category) || b.getCategoryName().equals(category))
                 .filter(b -> b.getPrice() >= finalMinPrice && b.getPrice() <= finalMaxPrice)
                 .collect(Collectors.toList());
-        books.setAll(filtered);
+
+        bookTable.setItems(FXCollections.observableArrayList(filtered));
         resultLabel.setText("Found " + filtered.size() + " books");
     }
 
@@ -128,13 +175,11 @@ public class BookController {
 
     @FXML
     private void handleViewBooks() throws IOException {
-        // Already in Book view, perhaps reload
         loadBooks();
     }
 
     @FXML
     private void handleSearchBooks() throws IOException {
-        // Same as viewBooks
         loadBooks();
     }
 

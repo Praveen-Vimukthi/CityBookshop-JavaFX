@@ -2,39 +2,84 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1024.0" stylesheets="@style/Dashboard.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.citybookshop.controller.StockController">
-   <children>
-      <BorderPane prefHeight="720.0" prefWidth="1024.0">
-         <center>
-            <VBox prefHeight="658.0" prefWidth="740.0" spacing="20.0" style="-fx-padding: 20; -fx-background-color: #191a2e;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="📦 Low Stock Books" />
-                  <TableView fx:id="stockTable" prefHeight="500.0" style="-fx-background-color: #16213d;" VBox.vgrow="ALWAYS">
-                     <columns>
-                        <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="titleCol" prefWidth="200.0" text="Title" />
-                        <TableColumn fx:id="authorCol" prefWidth="150.0" text="Author" />
-                        <TableColumn fx:id="priceCol" prefWidth="90.0" text="Price" />
-                        <TableColumn fx:id="quantityCol" prefWidth="90.0" text="Quantity" />
-                        <TableColumn fx:id="categoryCol" prefWidth="130.0" text="Category" />
-                     </columns>
-                  </TableView>
-                  <HBox alignment="CENTER" spacing="20.0">
-                     <children>
-                        <Label fx:id="resultLabel" style="-fx-font-weight: bold; -fx-text-fill: #FF9800;" />
-                        <Button fx:id="backButton" onAction="#handleBack" prefWidth="200.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="⬅ Back to Dashboard" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
-   </children>
+
+    <children>
+        <BorderPane prefHeight="720.0" prefWidth="1024.0">
+
+            <!-- ── Sidebar ── -->
+            <left>
+                <VBox prefWidth="220.0" spacing="0" styleClass="sidebar" stylesheets="@style/StockDashboard.css">
+
+                    <!-- Brand -->
+                    <VBox alignment="CENTER" spacing="6" styleClass="sidebar-brand">
+                        <Label styleClass="brand-icon" text="📚" />
+                        <Label styleClass="brand-name" text="City Bookshop" />
+                    </VBox>
+
+                    <Separator styleClass="sidebar-divider" />
+
+                    <!-- Nav Label -->
+                    <Label styleClass="nav-section-label" text="NAVIGATION" />
+
+                    <!-- Nav Buttons -->
+                    <Button maxWidth="Infinity" styleClass="nav-button, nav-button-active" text="📋  View Stock" />
+
+                </VBox>
+            </left>
+
+            <!-- ── Main Content ── -->
+            <center>
+                <VBox spacing="24.0" styleClass="content-area" stylesheets="@style/StockDashboard.css">
+
+                    <!-- Top Bar -->
+                    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="topbar">
+                        <Label styleClass="page-title" text="📦  Low Stock Books" HBox.hgrow="ALWAYS" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label styleClass="welcome-text" text="Welcome" />
+                        <Label fx:id="welcomeLabel" styleClass="welcome-name" />
+                    </HBox>
+
+                    <!-- Stats Badge Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="16">
+                        <Label fx:id="resultLabel" styleClass="result-badge" text="Total low stock: 0" />
+                        <Label styleClass="warning-badge" text="⚠ Items below threshold" />
+                    </HBox>
+
+                    <!-- Table Card -->
+                    <VBox spacing="0" styleClass="table-card" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="stockTable" styleClass="stock-table" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="idCol" prefWidth="80" text="ID" />
+                                <TableColumn fx:id="titleCol" prefWidth="220" text="Title" />
+                                <TableColumn fx:id="authorCol" prefWidth="160" text="Author" />
+                                <TableColumn fx:id="priceCol" prefWidth="100" text="Price" />
+                                <TableColumn fx:id="quantityCol" prefWidth="100" text="Quantity" />
+                                <TableColumn fx:id="categoryCol" prefWidth="150" text="Category" />
+                            </columns>
+                            <placeholder>
+                                <Label styleClass="empty-label" text="✅  All books are well stocked!" />
+                            </placeholder>
+                        </TableView>
+                    </VBox>
+
+                    <!-- Footer Row -->
+                    <HBox alignment="CENTER_RIGHT" spacing="16" styleClass="footer-row">
+                        <Button fx:id="backButton" onAction="#handleBack" prefWidth="200.0" styleClass="back-button" text="⬅  Back to Dashboard" />
+                    </HBox>
+
+                </VBox>
+            </center>
+
+        </BorderPane>
+    </children>
 </AnchorPane>

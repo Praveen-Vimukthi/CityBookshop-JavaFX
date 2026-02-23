@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════
+   Account.css  —  City Bookshop · Create Account
+   ═══════════════════════════════════════════════ */
+
+/* ── Base ─────────────────────────────────────── */
+.anchor-pane, .border-pane {
+    -fx-background-color: #0d0f1e;
+}
+
+/* ══════════════════════════════════════════════
+   CONTENT AREA
+══════════════════════════════════════════════ */
+.content-area {
+    -fx-background-color: #0d0f1e;
+    -fx-padding: 40 0 40 0;
+}
+
+/* ══════════════════════════════════════════════
+   PAGE HEADER
+══════════════════════════════════════════════ */
+.page-header {
+    -fx-padding: 0 0 28 0;
+}
+
+.header-icon {
+    -fx-font-size: 38px;
+}
+
+.page-title {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 30px;
+    -fx-text-fill: #eef0ff;
+}
+
+.page-subtitle {
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-text-fill: #5a5e7a;
+}
+
+/* ══════════════════════════════════════════════
+   FORM CARD
+══════════════════════════════════════════════ */
+.form-card {
+    -fx-background-color: #1a1d35;
+    -fx-background-radius: 16px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 16px;
+    -fx-border-width: 1;
+    -fx-max-width: 500px;
+    -fx-min-width: 500px;
+    -fx-effect: dropshadow(gaussian, #00000088, 24, 0, 0, 8);
+}
+
+.section-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 10px;
+    -fx-text-fill: #5a5e7a;
+}
+
+/* ══════════════════════════════════════════════
+   FORM FIELDS
+══════════════════════════════════════════════ */
+.field-label {
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 13px;
+    -fx-text-fill: #9a9db8;
+}
+
+.form-field {
+    -fx-background-color: #111328;
+    -fx-text-fill: #eef0ff;
+    -fx-prompt-text-fill: #5a5e7a;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+    -fx-padding: 10 14 10 14;
+}
+
+.form-field:focused {
+    -fx-border-color: #9C27B0;
+    -fx-background-color: #13152a;
+}
+
+.combo-field {
+    -fx-background-color: #111328;
+    -fx-text-fill: #eef0ff;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+    -fx-padding: 2 0 2 0;
+}
+
+.combo-field:focused {
+    -fx-border-color: #9C27B0;
+}
+
+.combo-field .list-view {
+    -fx-background-color: #1a1d35;
+    -fx-border-color: #252848;
+}
+
+.combo-field .list-cell {
+    -fx-background-color: #1a1d35;
+    -fx-text-fill: #eef0ff;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-padding: 8 14 8 14;
+}
+
+.combo-field .list-cell:hover {
+    -fx-background-color: #252848;
+}
+
+/* ══════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════ */
+.btn-create {
+    -fx-background-color: #e94560;
+    -fx-text-fill: white;
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 15px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
+
+.btn-create:hover {
+    -fx-background-color: #7b1fa2;
+    -fx-effect: dropshadow(gaussian, #9C27B066, 12, 0, 0, 4);
+}
+
+.btn-create:pressed {
+    -fx-background-color: #6a1b9a;
+}
+
+.btn-back {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9a9db8;
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 15px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.btn-back:hover {
+    -fx-background-color: #1e2240;
+    -fx-text-fill: #eef0ff;
+    -fx-border-color: #4c7ef3;
+}
+
+/* ══════════════════════════════════════════════
+   MESSAGE LABEL
+══════════════════════════════════════════════ */
+.message-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: #e94560;
+    -fx-padding: 0 0 0 2;
+}

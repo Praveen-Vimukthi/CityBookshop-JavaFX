@@ -1,67 +1,384 @@
-/* Book.css - Light Theme for Book Search View */
+/* ═══════════════════════════════════════════════
+   Book.css  —  City Bookshop · Dark Luxury Theme
+   ═══════════════════════════════════════════════ */
 
+/* ── Root Variables ───────────────────────────── */
 .root {
-    -fx-background-color: #f5f5f5;
+    -fx-bg-deep:       #0d0f1e;
+    -fx-bg-panel:      #13152a;
+    -fx-bg-card:       #1a1d35;
+    -fx-bg-card-hover: #1e2240;
+    -fx-bg-field:      #111328;
+
+    -fx-accent-red:    #e94560;
+    -fx-accent-teal:   #52cca7;
+    -fx-accent-blue:   #4c7ef3;
+
+    -fx-text-primary:  #eef0ff;
+    -fx-text-secondary:#9a9db8;
+    -fx-text-muted:    #5a5e7a;
+
+    -fx-border-subtle: #252848;
+    -fx-border-active: #e94560;
+
+    -fx-font-body:     "Gill Sans MT";
+    -fx-font-bold:     "Gill Sans MT Bold";
 }
 
-.label {
-    -fx-text-fill: #333333;
+/* ── Base ─────────────────────────────────────── */
+.anchor-pane, .border-pane {
+    -fx-background-color: #0d0f1e;
+}
+
+/* ══════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════ */
+.sidebar {
+    -fx-background-color: #13152a;
+    -fx-border-color: transparent #252848 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-logo {
+    -fx-background-color: #0d0f1e;
+    -fx-border-color: transparent transparent #252848 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.sidebar-logo-icon {
+    -fx-font-size: 32px;
+    -fx-padding: 10 0 4 0;
+}
+
+.sidebar-logo-text {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 18px;
+    -fx-text-fill: #e94560;
+    -fx-padding: 0 0 14 0;
+}
+
+.sidebar-section-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 10px;
+    -fx-text-fill: #5a5e7a;
+    -fx-letter-spacing: 2px;
+    -fx-padding: 0 0 4 0;
+}
+
+/* Nav Buttons */
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9a9db8;
     -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 15px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 0 0 0 16;
 }
 
-.text-field {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-padding: 5;
+.nav-btn:hover {
+    -fx-background-color: #1e2240;
+    -fx-text-fill: #eef0ff;
 }
 
-.combo-box {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
+.nav-btn-active {
+    -fx-background-color: linear-gradient(to right, #e9456022, transparent);
+    -fx-text-fill: #e94560;
+    -fx-border-color: transparent transparent transparent #e94560;
+    -fx-border-width: 0 0 0 3;
 }
 
-.button {
-    -fx-background-color: #4CAF50;
+.nav-btn-active:hover {
+    -fx-background-color: linear-gradient(to right, #e9456033, transparent);
+    -fx-text-fill: #e94560;
+}
+
+.nav-btn-back {
+    -fx-background-color: #1a1d35;
+    -fx-text-fill: #9a9db8;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 0 0 0 16;
+    -fx-border-color: #252848;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1;
+}
+
+.nav-btn-back:hover {
+    -fx-background-color: #252848;
+    -fx-text-fill: #eef0ff;
+}
+
+/* ══════════════════════════════════════════════
+   TOPBAR
+══════════════════════════════════════════════ */
+.topbar {
+    -fx-background-color: #13152a;
+    -fx-border-color: transparent transparent #252848 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 0 0;
+}
+
+.topbar-title {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 20px;
+    -fx-text-fill: #eef0ff;
+}
+
+.topbar-welcome {
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-text-fill: #9a9db8;
+    -fx-padding: 0 8 0 0;
+}
+
+.role-badge {
+    -fx-background-color: #e9456022;
+    -fx-background-radius: 20px;
+    -fx-border-color: #e9456055;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1;
+    -fx-padding: 4 14 4 14;
+}
+
+.role-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: #e94560;
+}
+
+.logout-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9a9db8;
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #e94560;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-padding: 8 16;
+    -fx-border-color: #e94560;
 }
 
-.button:hover {
-    -fx-background-color: #45a049;
+/* ══════════════════════════════════════════════
+   CONTENT AREA
+══════════════════════════════════════════════ */
+.content-area {
+    -fx-background-color: #0d0f1e;
 }
 
-.button:pressed {
-    -fx-background-color: #3e8e41;
+.page-title {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 26px;
+    -fx-text-fill: #eef0ff;
 }
 
-.table-view {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
+/* ══════════════════════════════════════════════
+   CARDS
+══════════════════════════════════════════════ */
+.card {
+    -fx-background-color: #1a1d35;
+    -fx-background-radius: 14px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 14px;
+    -fx-border-width: 1;
 }
 
-.table-view .column-header {
-    -fx-background-color: #e0e0e0;
-    -fx-text-fill: #333333;
-    -fx-font-weight: bold;
+.card-section-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 10px;
+    -fx-text-fill: #5a5e7a;
 }
 
-.table-view .table-row-cell {
-    -fx-background-color: #ffffff;
+/* ══════════════════════════════════════════════
+   FORM FIELDS
+══════════════════════════════════════════════ */
+.field-label {
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 12px;
+    -fx-text-fill: #9a9db8;
 }
 
-.table-view .table-row-cell:odd {
-    -fx-background-color: #f9f9f9;
+.search-field {
+    -fx-background-color: #111328;
+    -fx-text-fill: #eef0ff;
+    -fx-prompt-text-fill: #5a5e7a;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
 }
 
-.table-view .table-row-cell:selected {
-    -fx-background-color: #b3d9ff;
+.search-field:focused {
+    -fx-border-color: #4c7ef3;
+    -fx-background-color: #13152a;
+}
+
+.combo-field {
+    -fx-background-color: #111328;
+    -fx-text-fill: #eef0ff;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+}
+
+.combo-field:focused {
+    -fx-border-color: #4c7ef3;
+}
+
+.combo-field .list-view {
+    -fx-background-color: #1a1d35;
+    -fx-border-color: #252848;
+}
+
+.combo-field .list-cell {
+    -fx-background-color: #1a1d35;
+    -fx-text-fill: #eef0ff;
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-padding: 6 12 6 12;
+}
+
+.combo-field .list-cell:hover {
+    -fx-background-color: #252848;
+}
+
+/* ══════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════ */
+.btn-search {
+    -fx-background-color: #4c7ef3;
+    -fx-text-fill: white;
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-search:hover {
+    -fx-background-color: #3d6be0;
+}
+
+.btn-clear {
+    -fx-background-color: #1a1d35;
+    -fx-text-fill: #9a9db8;
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #252848;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.btn-clear:hover {
+    -fx-background-color: #e94560;
+    -fx-text-fill: white;
+    -fx-border-color: #e94560;
+}
+
+/* ══════════════════════════════════════════════
+   TABLE VIEW
+══════════════════════════════════════════════ */
+.book-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: #252848;
+}
+
+.book-table .column-header-background {
+    -fx-background-color: #111328;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.book-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #252848 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-size: 40px;
+}
+
+.book-table .column-header .label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: #9a9db8;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 8;
+}
+
+.book-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #252848 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 42px;
+}
+
+.book-table .table-row-cell:hover {
+    -fx-background-color: #1e2240;
+}
+
+.book-table .table-row-cell:selected {
+    -fx-background-color: #4c7ef322;
+    -fx-border-color: transparent transparent #4c7ef3 transparent;
+}
+
+.book-table .table-cell {
+    -fx-font-family: "Gill Sans MT";
+    -fx-font-size: 14px;
+    -fx-text-fill: #eef0ff;
+    -fx-padding: 0 0 0 8;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.book-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #eef0ff;
+}
+
+/* Scrollbar */
+.book-table .scroll-bar:vertical {
+    -fx-background-color: #111328;
+    -fx-pref-width: 8px;
+}
+
+.book-table .scroll-bar:vertical .thumb {
+    -fx-background-color: #252848;
+    -fx-background-radius: 4px;
+}
+
+.book-table .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #4c7ef3;
+}
+
+.book-table .scroll-bar .increment-button,
+.book-table .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0;
+}
+
+/* ══════════════════════════════════════════════
+   RESULT LABEL
+══════════════════════════════════════════════ */
+.result-label {
+    -fx-font-family: "Gill Sans MT Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: #52cca7;
+    -fx-background-color: #52cca722;
+    -fx-background-radius: 20px;
+    -fx-padding: 4 12 4 12;
 }

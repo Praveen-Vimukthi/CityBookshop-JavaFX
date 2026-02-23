@@ -33,6 +33,9 @@ public class DashboardController implements Initializable {
 
     public void setUser(User loggedInUser) {
         this.loggedInUser = loggedInUser;
+        if (loggedInUser != null) {
+            welcomeLabel.setText("Welcome, " + loggedInUser.getUsername());
+        }
     }
 
     @FXML
@@ -75,21 +78,17 @@ public class DashboardController implements Initializable {
         BookService bookService = new BookService();
         CategoryService categoryService = new CategoryService();
 
-        // Total Books
         int totalBooks = bookService.getAllBooks().size();
-        totalBooksLabel.setText("📚 Total Books: " + totalBooks);
+        totalBooksLabel.setText(" "+totalBooks);
 
-        // Total Categories
         int totalCategories = categoryService.getAllCategory().size();
-        totalCategoriesLabel.setText("🏷️ Total Categories: " + totalCategories);
+        totalCategoriesLabel.setText(" "+totalCategories);
 
-        // Total Stocks
         int totalStocks = bookService.getAllBooks().stream().mapToInt(book -> book.getQuantity()).sum();
-        stocksLabel.setText("📦 Total Stocks: " + totalStocks);
+        stocksLabel.setText(" "+totalStocks);
 
-        // Welcome message
         if (loggedInUser != null) {
-            welcomeLabel.setText("Welcome " + loggedInUser.getUsername() + " (" + loggedInUser.getRole() + ")");
+            welcomeLabel.setText("Welcome, " + loggedInUser.getUsername());
         }
     }
 

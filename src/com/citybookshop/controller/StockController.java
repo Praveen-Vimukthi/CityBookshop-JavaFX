@@ -37,12 +37,13 @@ public class StockController {
     }
 
     private void setUpTable() {
-        idCol.setCellValueFactory(new PropertyValueFactory<>("bookId"));
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-        authorCol.setCellValueFactory(new PropertyValueFactory<>("author"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        categoryCol.setCellValueFactory(new PropertyValueFactory<>("categoryName"));
+        idCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getBookId()));
+        titleCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
+        authorCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getAuthor()));
+        priceCol.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getPrice()).asObject());
+        quantityCol.setCellValueFactory(data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getQuantity()).asObject());
+        categoryCol.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getCategoryName()));
+
     }
 
     private void loadLowStockBooks() {
